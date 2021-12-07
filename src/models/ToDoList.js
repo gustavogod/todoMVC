@@ -36,7 +36,7 @@ import { getParent, types } from "mobx-state-tree";
  * 2 - Refatorar as actions acrescentando os acessos a localStorage
  */
 
-const ToDoListItem = types
+export const ToDoListItem = types
   .model({
     id: types.identifier,
     description: types.string,
@@ -58,7 +58,7 @@ const ToDoListItem = types
 
 export const ToDoList = types
   .model({
-    items: types.array(ToDoListItem);
+    items: types.array(ToDoListItem)
   })
   .actions(self => ({
     add(item) {
