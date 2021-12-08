@@ -28,20 +28,6 @@ onSnapshot(toDoList, snapshot => {
   }
 })
 
-toDoList.add(ToDoListItem.create({
-  id: "1",
-  description: "item 1",
-  isCompleted: false
-}));
-
-toDoList.add(ToDoListItem.create({
-  id: "2",
-  description: "item 2",
-  isCompleted: false
-}));
-
-toDoList.items[0].changeDescription("novo item");
-
 function renderApp() {
   ReactDOM.render(
     <React.StrictMode>

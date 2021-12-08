@@ -20,33 +20,35 @@ body {
   min-height: 100%;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100vw;
+.ant-layout {
+  min-height: 100vh !important;
 }
 
-header {
-  flex: 0 0 40vh;
-  background-color: #001529;
-  width: inherit;
+.ant-layout-header {
   display: flex;
   justify-content: center;
+  background-color: #001529;
+  min-height: 40vh;
+  padding: 0 50px;
+  margin-bottom: 16px;
 }
 
-header h1.ant-typography {
+.ant-layout-header h1.ant-typography {
   color: #ffffff;
 }
 
-main {
+.ant-layout-content {
   background-color: #F0F2F5;
-  flex: 1;
-  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
-footer {
+.ant-layout-footer {
   padding: 24px 50px;
   background-color: #F0F2F5;
-  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
