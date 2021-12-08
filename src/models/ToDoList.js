@@ -1,5 +1,7 @@
 import { destroy, getParent, types } from "mobx-state-tree";
 
+import { slugify } from "../assets/helpers";
+
 /** 
  * ESTADO GLOBAL
  *  - TAREFA
@@ -59,8 +61,14 @@ export const ToDoList = types
     items: types.array(ToDoListItem)
   })
   .actions(self => ({
-    add(item) {
-      self.items.push(item);
+    add(value) {
+      if (!self.items.some(item => item.value === value)) {
+        self.items.push( ToDoListItem.create({
+          key: value.slugify(),
+          value,
+          done: false
+        }));
+      }
     },
     remove(item) {
       destroy(item);

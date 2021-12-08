@@ -15,34 +15,9 @@ it("can create a instance of ToDoListItem", () => {
   expect(item.done).toBe(true);
 })
 
-it("can create a to do list, add items, change atributes, and remove item", () => {
-  const list = ToDoList.create({
-    items: [
-      {
-        key: "1",
-        value: "item 1",
-        done: false
-      }
-    ]
-  });
+it("can create a empty todo list, add items, change atributes, and remove item", () => {
+  const todolist = ToDoList.create({ items: [] });
 
-  expect(list.items.length).toBe(1);
-  expect(list.items[0].value).toBe("item 1");
+  expect(todolist.items.length).toBe(0);
 
-  list.add(
-    ToDoListItem.create({
-      key: "2",
-      value: "item 2",
-      done: false
-    })
-  )
-
-  expect(list.items.length).toBe(2);
-  expect(list.items[1].value).toBe("item 2");
-
-  list.items[1].changeValue("novo item");
-  expect(list.items[1].value).toBe("novo item");
-
-  list.items[0].remove();
-  expect(list.items[0].value).toBe("novo item");
 })
