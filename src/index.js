@@ -30,9 +30,7 @@ onSnapshot(toDoList, snapshot => {
 
 function renderApp() {
   ReactDOM.render(
-    <React.StrictMode>
-      <App toDoList={toDoList} />
-    </React.StrictMode>,
+      <App toDoList={toDoList} />,
     document.getElementById('root')
   );
 }

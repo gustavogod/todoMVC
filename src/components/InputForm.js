@@ -23,9 +23,6 @@ const InputForm = () => {
 
   }
 
-  //importar o item da lista e criar quando der o input
-  //quando for criar, a função tem que verificar se o item já existe e então 
-
   return (
     <>
       <Form
@@ -36,7 +33,6 @@ const InputForm = () => {
       >
         <Form.Item
           name="item"
-          id="item"
           rules={[
             {
               required: true,
