@@ -12,12 +12,10 @@ import { destroy, getParent, types } from "mobx-state-tree";
  * 
  * - LISTA DE TAREFAS
  *    - Array de tarefas
- *  - ACTIONS -> Todas vão utilizar localStorage
- *    - Adicionar tarefa - verificar se tarefa a ser adicionada já existe. Se existir, não fazer nada
+ *  - ACTIONS
+ *    - Adicionar tarefa
  *    - Remover tarefa
  *    - Remover todos os items completos
- *    - Editar tarefa (talvez dê p aproveitar isso no próprio adicionar)
- *    - Invocar o toggle status de uma tarefa a partir de seu ID
  *    - Marcar todas como completas
  *    - Marcar todas como ativas
  *  - VIEWS
@@ -48,7 +46,7 @@ export const ToDoListItem = types
         self.value = newValue;
       }
     },
-    toggleIsCompleted() {
+    toggleDone() {
       self.done = !self.done;
     },
     remove() {

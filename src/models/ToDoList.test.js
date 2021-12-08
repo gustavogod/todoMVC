@@ -11,7 +11,7 @@ it("can create a instance of ToDoListItem", () => {
   expect(item.done).toBe(false);
   item.changeValue("novo item");
   expect(item.value).toBe("novo item");
-  item.toggleIsCompleted();
+  item.toggleDone();
   expect(item.done).toBe(true);
 })
 
@@ -24,7 +24,7 @@ it("can create a to do list, add items, change atributes, and remove item", () =
         done: false
       }
     ]
-  })
+  });
 
   expect(list.items.length).toBe(1);
   expect(list.items[0].value).toBe("item 1");
