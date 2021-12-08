@@ -15,7 +15,7 @@ it("can create a instance of ToDoListItem", () => {
   expect(item.isCompleted).toBe(true);
 })
 
-it("can create a to do list, add items, and change atributes", () => {
+it("can create a to do list, add items, change atributes, and remove item", () => {
   const list = ToDoList.create({
     items: [
       {
@@ -42,4 +42,7 @@ it("can create a to do list, add items, and change atributes", () => {
 
   list.items[1].changeDescription("novo item");
   expect(list.items[1].description).toBe("novo item");
+
+  list.items[0].remove();
+  expect(list.items[0].description).toBe("novo item");
 })

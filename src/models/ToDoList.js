@@ -1,4 +1,4 @@
-import { getParent, types } from "mobx-state-tree";
+import { destroy, getParent, types } from "mobx-state-tree";
 
 /** 
  * ESTADO GLOBAL
@@ -65,6 +65,6 @@ export const ToDoList = types
       self.items.push(item);
     },
     remove(item) {
-      self.items.push(item);
+      destroy(item);
     }
   }));
