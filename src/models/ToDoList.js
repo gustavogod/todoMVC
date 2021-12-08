@@ -38,18 +38,18 @@ import { destroy, getParent, types } from "mobx-state-tree";
 
 export const ToDoListItem = types
   .model({
-    id: types.identifier,
-    description: types.string,
-    isCompleted: types.boolean
+    key: types.identifier,
+    value: types.string,
+    done: types.boolean
   })
   .actions(self => ({
-    changeDescription(newDescription) {
-      if (newDescription !== self.description) {
-        self.description = newDescription;
+    changeValue(newValue) {
+      if (newValue !== self.value) {
+        self.value = newValue;
       }
     },
     toggleIsCompleted() {
-      self.isCompleted = !self.isCompleted;
+      self.done = !self.done;
     },
     remove() {
       getParent(self, 2).remove(self);

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/index.css';
+import './assets/style/index.css';
 import App from './pages/App';
 import 'antd/dist/antd.css';
 
-import { ToDoList, ToDoListItem } from './models/ToDoList';
+import { ToDoList } from './models/ToDoList';
 import { getSnapshot, onSnapshot } from 'mobx-state-tree';
 
 const localStorageKey = 'todolist';
