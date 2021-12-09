@@ -38,13 +38,14 @@ import { slugify } from "../assets/helpers";
 
 export const ToDoListItem = types
   .model({
-    key: types.identifier,
+    key: types.string,
     value: types.string,
     done: types.boolean
   })
   .actions(self => ({
     changeValue(newValue) {
       if (newValue !== self.value) {
+        self.key = slugify(newValue);
         self.value = newValue;
       }
     },
@@ -64,7 +65,7 @@ export const ToDoList = types
     add(value) {
       if (!self.items.some(item => item.value === value)) {
         self.items.push( ToDoListItem.create({
-          key: value.slugify(),
+          key: slugify(value),
           value,
           done: false
         }));
@@ -72,5 +73,13 @@ export const ToDoList = types
     },
     remove(item) {
       destroy(item);
+    },
+    removeDoneItems() {
+      const length = self.items.length;
+      for (let i = length - 1; i >= 0; i--) {
+        if (self.items[i].done) {
+          self.items[i].remove();
+        }
+      }
     }
   }));

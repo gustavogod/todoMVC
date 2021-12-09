@@ -4,9 +4,9 @@ import { Form, Input, Button } from "antd";
 import { ScheduleTwoTone } from '@ant-design/icons';
 
 
-import { ToDoListItem } from "../models/ToDoList";
+import { ToDoList } from "../models/ToDoList";
 
-const InputForm = () => {
+const InputForm = ({ toDoList }) => {
   const inputRef = useRef(null);
   const [form] = Form.useForm();
 
@@ -15,14 +15,17 @@ const InputForm = () => {
   }, [])
 
   function handleFinish (values) {
+    const newItem = values.item;
+    toDoList.add(newItem);
     form.resetFields();
     inputRef.current.focus();
   }
 
   function handleSetAllClick (e) {
-
+    //Marca como feito todos os items não feitos
+    //Se todas os items estiverem feitos, então desmarca todos
   }
-
+  
   return (
     <>
       <Form

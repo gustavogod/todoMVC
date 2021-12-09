@@ -9,7 +9,7 @@ const { Header, Footer, Content } = Layout;
 const { Title, Text, Link } = Typography;
 
 const App = observer(({ toDoList }) => {
-
+    
     return (
       <Layout>
         <Header>
@@ -23,7 +23,7 @@ const App = observer(({ toDoList }) => {
         <Content>
           <Row justify="center">
             <Col span={12}>
-              <InputForm />
+              <InputForm toDoList={toDoList} />
             </Col>
           </Row>
         </Content>
