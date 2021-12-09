@@ -78,3 +78,37 @@ it("can reorder todolist items", () => {
   expect(todolist.items[1].value).toBe("item 3");
   expect(todolist.items[2].value).toBe("item 1");
 })
+
+it("can use toggle all items", () => {
+  const todolist = ToDoList.create({ items: [] });
+  todolist.add("item 1");
+  todolist.add("item 2");
+  todolist.add("item 3");
+
+  todolist.toggleAll();
+
+  expect(todolist.items.some(item => !item.done)).toBe(false);
+})
+
+it("can use toggle all items 2", () => {
+  const todolist = ToDoList.create({ items: [] });
+  todolist.add("item 1");
+  todolist.add("item 2");
+  todolist.add("item 3");
+
+  todolist.toggleAll();
+  expect(todolist.items.some(item => !item.done)).toBe(false);
+  todolist.toggleAll();
+  expect(todolist.items.some(item => item.done)).toBe(false);
+})
+
+it("can use toggle all items 3", () => {
+  const todolist = ToDoList.create({ items: [] });
+  todolist.add("item 1");
+  todolist.add("item 2");
+  todolist.add("item 3");
+
+  todolist.items[0].toggleDone();
+  todolist.toggleAll();
+  expect(todolist.items.some(item => !item.done)).toBe(false);
+})

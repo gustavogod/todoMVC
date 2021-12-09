@@ -18,9 +18,8 @@ const InputForm = ({ toDoList }) => {
     inputRef.current.focus();
   }
 
-  function handleSetAllClick (e) {
-    //Marca como feito todos os items não feitos
-    //Se todas os items estiverem feitos, então desmarca todos
+  function handleSetAllClick () {
+    toDoList.toggleAll();
   }
   
   return (

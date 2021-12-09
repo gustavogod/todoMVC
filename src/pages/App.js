@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 
 import logo from '../assets/images/logo.png';
 import InputForm from '../components/InputForm';
+import ItemsList from '../components/ItemsList';
 
 import { Image, Space, Typography, Layout, Row, Col } from 'antd';
 
@@ -24,6 +25,13 @@ const App = ({ toDoList }) => {
           <Row justify="center">
             <Col span={12}>
               <InputForm toDoList={toDoList} />
+              {
+                toDoList.items.length > 0
+                ?
+                <ItemsList toDoList={toDoList} />
+                :
+                null
+              }
             </Col>
           </Row>
         </Content>

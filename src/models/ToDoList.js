@@ -52,6 +52,18 @@ export const ToDoList = types
       //salvar item a ser movido
       const item = detach(self.items[from]);
       self.items.splice(to, 0, item);
+    },
+    toggleAll() {
+      if(self.items.some(item => !item.done)) { //tem algum ativo?
+        self.items.forEach( item => {
+          if (!item.done) {
+            item.toggleDone();
+          }
+        })
+      }
+      else { //todos estão completos
+        self.items.forEach( item => item.toggleDone() )
+      }
     }
   }))
   .views(self => ({

@@ -22,7 +22,7 @@ const ItemsList = ({ toDoList }) => {
     <Card
       actions={[
         <Text key="itemsLeft">
-          { `${itemsLeft.length} item${itemsLeft.length === 1 && 's'} left` }
+          { `${itemsLeft.length} item${itemsLeft.length > 1 ? 's' : ''} left` }
         </Text>,
         <Radio.Group 
           key="filters" 
