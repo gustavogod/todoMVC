@@ -27,7 +27,6 @@ const InputForm = ({ toDoList }) => {
       <Form
         form={form}
         onFinish={handleFinish}
-        //onFinishFailed={}
         size="large"
       >
         <Form.Item
@@ -38,6 +37,7 @@ const InputForm = ({ toDoList }) => {
               message: 'Digite uma tarefa!',
             },
           ]}
+          style={{margin: '0px'}}
         >
           <Input
             ref={inputRef}

@@ -22,7 +22,7 @@ const App = ({ toDoList }) => {
   
   
         <Content>
-          <Row justify="center">
+          <Row justify="center" style={{rowGap: '0px'}}>
             <Col span={12}>
               <InputForm toDoList={toDoList} />
               {
@@ -39,7 +39,11 @@ const App = ({ toDoList }) => {
   
         <Footer>
           <Text type="secondary">
-            Made with ❤️ by Gustavo Dias. Based on&nbsp;
+            Made with ❤️ by&nbsp;
+            <Link href="https://github.com/gustavogod" target="_blank">
+              Gustavo Dias
+            </Link> 
+            .&nbsp;Based on&nbsp;
             <Link
               href="https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality" 
               target="_blank"

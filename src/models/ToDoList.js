@@ -10,7 +10,9 @@ export const ToDoListItem = types
   })
   .actions(self => ({
     changeValue(newValue) {
-      if (newValue !== self.value) {
+      if (newValue !== self.value &&
+          !getParent(self, 2).items.some(item => item.value === newValue)
+        ) {
         self.key = slugify(newValue);
         self.value = newValue;
       }
