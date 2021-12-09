@@ -3,9 +3,6 @@ import { observer } from "mobx-react-lite";
 import { Form, Input, Button } from "antd";
 import { ScheduleTwoTone } from '@ant-design/icons';
 
-
-import { ToDoList } from "../models/ToDoList";
-
 const InputForm = ({ toDoList }) => {
   const inputRef = useRef(null);
   const [form] = Form.useForm();

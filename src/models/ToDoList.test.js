@@ -61,3 +61,20 @@ it("can remove all done items 2", () => {
   todolist.removeDoneItems();
   expect(todolist.items.length).toBe(0);
 })
+
+it("can reorder todolist items", () => {
+  const todolist = ToDoList.create({ items: [] });
+  todolist.add("item 1");
+  todolist.add("item 2");
+  todolist.add("item 3");
+
+  todolist.reorder(0, 2);
+  expect(todolist.items[0].value).toBe("item 2");
+  expect(todolist.items[1].value).toBe("item 3");
+  expect(todolist.items[2].value).toBe("item 1");
+
+  todolist.reorder(2, 2);
+  expect(todolist.items[0].value).toBe("item 2");
+  expect(todolist.items[1].value).toBe("item 3");
+  expect(todolist.items[2].value).toBe("item 1");
+})

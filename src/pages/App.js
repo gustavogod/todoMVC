@@ -8,10 +8,10 @@ import { Image, Space, Typography, Layout, Row, Col } from 'antd';
 const { Header, Footer, Content } = Layout;
 const { Title, Text, Link } = Typography;
 
-const App = observer(({ toDoList }) => {
+const App = ({ toDoList }) => {
     
     return (
-      <Layout>
+      <Layout style={{minHeight: '100vh'}}>
         <Header>
           <Space align="center">
             <Image src={logo} alt="logo" width={165} />
@@ -42,7 +42,7 @@ const App = observer(({ toDoList }) => {
         </Footer>
       </Layout>
     );
-  }
-); 
+  };
 
-export default App;
+
+export default observer(App);
