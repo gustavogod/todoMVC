@@ -15,9 +15,6 @@ const ItemsList = ({ toDoList, filter }) => {
   const itemsLeft = toDoList.items.filter(item => !item.done);
   const hasCompleted = itemsLeft.length < toDoList.items.length;
 
-  //Quando adicionar tarefa, se estiver no filtro Completed, mudar automaticamente para filtro ALL
-  //Colocar balãozinho informativo quando passar o cursor no botão de deletar
-
   return (
     <Card
       actions={[

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { Form, Input, Button } from "antd";
-import { ScheduleTwoTone } from '@ant-design/icons';
+import { Form, Input, Button, Tooltip } from "antd";
+import { EnterOutlined, ScheduleTwoTone } from '@ant-design/icons';
 
 const InputForm = ({ toDoList, filter }) => {
   const inputRef = useRef(null);
@@ -35,8 +35,9 @@ const InputForm = ({ toDoList, filter }) => {
           rules={[
             {
               required: true,
-              message: 'Digite uma tarefa!',
-            },
+              whitespace: true,
+              message: 'Type a task!'
+            }
           ]}
           style={{margin: '0px'}}
         >
@@ -44,11 +45,22 @@ const InputForm = ({ toDoList, filter }) => {
             ref={inputRef}
             placeholder="What needs to be done?"
             prefix={
+              <Tooltip 
+                placement="bottom"
+                title={<span>Mark all items as {toDoList.itemsLeft() ? 'completed' : 'active'}</span>}
+              >
               <Button type="text" onClick={handleSetAllClick}>
                 <ScheduleTwoTone />
               </Button>
+              </Tooltip>
             }
-          //Quando for criar a chave, tem q ver se tem caracteres especiais e converter para um caractere normal
+            suffix={
+              <Tooltip placement="bottom" title={<span>Add item</span>}>
+                <Button type="text" htmlType="submit">
+                <EnterOutlined style={{color: '#1890FF'}} />
+                </Button>
+              </Tooltip>
+            }
           />
 
         </Form.Item>

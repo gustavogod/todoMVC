@@ -80,6 +80,9 @@ export const ToDoList = types
       }
 
       return states[filter];
+    },
+    hasItem(newItem) {
+      return self.items.some(item => item.value === newItem);
     }
   }));
 

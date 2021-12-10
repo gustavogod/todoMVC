@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Button, Checkbox, Col, Row, Typography } from 'antd';
+import { Button, Checkbox, Col, Row, Tooltip, Typography } from 'antd';
 import { Draggable } from 'react-beautiful-dnd';
 
 import { DeleteOutlined } from '@ant-design/icons';
@@ -37,7 +37,7 @@ const Item = ({ item, index }) => {
                   padding: '8px',
                   transition: 'background-color 0.2s ease',
                   backgroundColor: dnd.isDragging ? 'lightgreen' : 'inherit'
-                }}  
+                }}
               >
                 <Col>
                   <Checkbox checked={item.done} onChange={e => { item.toggleDone() }} />
@@ -46,9 +46,14 @@ const Item = ({ item, index }) => {
                   <Text {...textAttrs}>{item.value}</Text>
                 </Col>
                 <Col>
-                  <Button type='danger' onClick={() => { item.remove() }}>
-                    <DeleteOutlined/>
-                  </Button>
+                  <Tooltip
+                    placement="top"
+                    title={<span>Delete item</span>}
+                  >
+                    <Button type="danger" onClick={() => { item.remove() }}>
+                      <DeleteOutlined />
+                    </Button>
+                  </Tooltip>
                 </Col>
               </Row>
             </div>
