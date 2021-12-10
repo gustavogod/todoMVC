@@ -10,24 +10,27 @@ const { Text } = Typography;
 const ItemsList = ({ toDoList }) => {
   const [filter, setFilter] = useState('ALL');
 
-  function handleRadioGroupChange (e) {
+  function handleRadioGroupChange(e) {
     const filter = e.target.value;
     setFilter(filter);
   }
 
-  const itemsLeft = toDoList.items.filter( item => !item.done );
+  const itemsLeft = toDoList.items.filter(item => !item.done);
   const hasCompleted = itemsLeft.length < toDoList.items.length;
+
+  //Quando adicionar tarefa, se estiver no filtro Completed, mudar automaticamente para filtro ALL
+  //Colocar balãozinho informativo quando passar o cursor no botão de deletar
 
   return (
     <Card
       actions={[
         <Text key="itemsLeft">
-          { `${itemsLeft.length} item${itemsLeft.length > 1 ? 's' : ''} left` }
+          {`${itemsLeft.length} item${itemsLeft.length > 1 ? 's' : ''} left`}
         </Text>,
-        <Radio.Group 
-          key="filters" 
-          size="small" 
-          buttonStyle="solid" 
+        <Radio.Group
+          key="filters"
+          size="small"
+          buttonStyle="solid"
           defaultValue="ALL"
           onChange={handleRadioGroupChange}
         >
@@ -35,7 +38,7 @@ const ItemsList = ({ toDoList }) => {
           <Radio.Button value="ACTIVE">Active</Radio.Button>
           <Radio.Button value="COMPLETED">Completed</Radio.Button>
         </Radio.Group>,
-        ( hasCompleted ? 
+        ((hasCompleted && filter !== 'ACTIVE') ?
           <Button key="clearComplete" size='small' onClick={e => { toDoList.removeDoneItems() }}>
             Clear completed
           </Button>
@@ -53,30 +56,36 @@ const ItemsList = ({ toDoList }) => {
           toDoList.reorder(source.index, destination.index);
         }}
       >
-        <Droppable droppableId="items">
-          {
-            (provided, dnd) => {
-              return (
-                <div 
-                  ref={provided.innerRef} 
+          <Droppable droppableId="items">
+            {
+              (provided, dnd) => {
+                return (
+                  <div
+                  ref={provided.innerRef}
                   {...provided.droppableProps}
                   style={{
                     transition: 'background-color 0.2s ease',
                     backgroundColor: dnd.isDraggingOver ? 'cornsilk' : 'inherit',
                     padding: '16px'
                   }}
-                >
-                  {
-                    toDoList.getFilteredItems(filter).map((item, index) => 
+                  >
+                    {
+                      !toDoList.getFilteredItems(filter).length
+                      ?
+                      <Text type="secondary" style={{padding: '10px'}}>
+                        No {filter === 'ACTIVE' ? 'active' : 'completed'} tasks to show
+                      </Text>
+                      :
+                      toDoList.getFilteredItems(filter).map((item, index) =>
                       <Item key={item.key} item={item} index={index} />
-                    )
-                  }
-                  { provided.placeholder }
-                </div>
-              );
+                      )
+                    }
+                    {provided.placeholder}
+                  </div>
+                );
+              }
             }
-          }
-        </Droppable>
+          </Droppable>
       </DragDropContext>
     </Card>
   );
