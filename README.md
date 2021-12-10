@@ -8,7 +8,7 @@
 
 ## Como utilizar
 
-A aplicação está disponível (neste link)[https://todo-mvc-pi.vercel.app].
+A aplicação está disponível [neste link](https://todo-mvc-pi.vercel.app).
 
 ## 🛠 Tecnologias utilizadas:
 
