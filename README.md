@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+<img src="./capa.png" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TodoMVC
+> A TodoMVC é uma To Do List baseada na [TodoMVC funcionality](https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality).
+> O projeto foi desenvolvido em [ReactJS](https://reactjs.org), com o gerenciamento de estados feito por meio da biblioteca [Mobx-state-tree](https://mobx-state-tree.js.org/intro/welcome). 
+> O layout e os coponentes de UI foram desenvolvidos com a biblioteca [Ant Design](https://ant.design).
+> Para implementação da funcionalidade drag-and-drop da lista de tarefas, foi utilizada a biblioteca [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd). 
 
-## Available Scripts
+## Como utilizar
 
-In the project directory, you can run:
+A aplicação está disponível (neste link)[https://todo-mvc-pi.vercel.app].
 
-### `yarn start`
+## 🛠 Tecnologias utilizadas:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [ReactJS](https://reactjs.org)
+- [Mobx-state-tree](https://mobx-state-tree.js.org/intro/welcome)
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- [CSS](https://www.w3.org/TR/CSS/#css)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🧔 Autor
+ <img style="border-radius: 100%;" src="https://avatars.githubusercontent.com/u/13698021?v=4" width="100px;" alt="My profile picture"/>
 
-### `yarn test`
+Feito por Gustavo Oliveira Dias 👋🏽
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Linkedin Badge](https://img.shields.io/badge/-Gustavo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gustavo-dias-22117012b/)](https://www.linkedin.com/in/gustavo-dias-22117012b/) 
+[![Gmail Badge](https://img.shields.io/badge/-gustavodias.god@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gustavodias.god@gmail.com)](mailto:gustavodias.god@gmail.com)
