@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { Form, Input, Button } from "antd";
 import { ScheduleTwoTone } from '@ant-design/icons';
 
-const InputForm = ({ toDoList }) => {
+const InputForm = ({ toDoList, filter }) => {
   const inputRef = useRef(null);
   const [form] = Form.useForm();
 
@@ -16,6 +16,7 @@ const InputForm = ({ toDoList }) => {
     toDoList.add(newItem);
     form.resetFields();
     inputRef.current.focus();
+    if (filter.state === 'COMPLETED') filter.changeState('ALL');
   }
 
   function handleSetAllClick () {

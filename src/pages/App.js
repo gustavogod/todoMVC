@@ -9,7 +9,7 @@ import { Image, Space, Typography, Layout, Row, Col } from 'antd';
 const { Header, Footer, Content } = Layout;
 const { Title, Text, Link } = Typography;
 
-const App = ({ toDoList }) => {
+const App = ({ toDoList, filter }) => {
     
     return (
       <Layout style={{minHeight: '100vh'}}>
@@ -24,11 +24,11 @@ const App = ({ toDoList }) => {
         <Content>
           <Row justify="center" style={{rowGap: '0px'}}>
             <Col span={12}>
-              <InputForm toDoList={toDoList} />
+              <InputForm toDoList={toDoList} filter={filter} />
               {
                 toDoList.items.length > 0
                 ?
-                <ItemsList toDoList={toDoList} />
+                <ItemsList toDoList={toDoList} filter={filter} />
                 :
                 null
               }

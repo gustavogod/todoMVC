@@ -4,7 +4,7 @@ import './assets/style/index.css';
 import App from './pages/App';
 import 'antd/dist/antd.css';
 
-import { ToDoList } from './models/ToDoList';
+import { ToDoList, Filter } from './models/ToDoList';
 import { getSnapshot, onSnapshot } from 'mobx-state-tree';
 
 const localStorageKey = 'todolist';
@@ -19,6 +19,7 @@ if (localStorage.getItem(localStorageKey)) {
 }
 
 let toDoList = (window.toDoList = ToDoList.create(initialState));
+let filter = (window.filter = Filter.create({state: 'ALL'}));
 
 onSnapshot(toDoList, snapshot => {
   try {
@@ -30,7 +31,7 @@ onSnapshot(toDoList, snapshot => {
 
 function renderApp() {
   ReactDOM.render(
-      <App toDoList={toDoList} />,
+      <App toDoList={toDoList} filter={filter} />,
     document.getElementById('root')
   );
 }
@@ -43,7 +44,9 @@ if(module.hot) {
 
   module.hot.accept(["./models/ToDoList"], () => {
     const snapshot = getSnapshot(toDoList);
+    const filterSnapshot = getSnapshot(filter);
     toDoList = (window.group = ToDoList.create(snapshot));
+    filter = (window.group = Filter.create(filterSnapshot));
     renderApp();
   })
 }

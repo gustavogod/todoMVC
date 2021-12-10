@@ -11,8 +11,8 @@ export const ToDoListItem = types
   .actions(self => ({
     changeValue(newValue) {
       if (newValue !== self.value &&
-          !getParent(self, 2).items.some(item => item.value === newValue)
-        ) {
+        !getParent(self, 2).items.some(item => item.value === newValue)
+      ) {
         self.key = slugify(newValue);
         self.value = newValue;
       }
@@ -32,7 +32,7 @@ export const ToDoList = types
   .actions(self => ({
     add(value) {
       if (!self.items.some(item => item.value === value)) {
-        self.items.push( ToDoListItem.create({
+        self.items.unshift(ToDoListItem.create({
           key: slugify(value),
           value,
           done: false
@@ -56,29 +56,39 @@ export const ToDoList = types
       self.items.splice(to, 0, item);
     },
     toggleAll() {
-      if(self.items.some(item => !item.done)) { //tem algum ativo?
-        self.items.forEach( item => {
+      if (self.items.some(item => !item.done)) { //tem algum ativo?
+        self.items.forEach(item => {
           if (!item.done) {
             item.toggleDone();
           }
         })
       }
       else { //todos estão completos
-        self.items.forEach( item => item.toggleDone() )
+        self.items.forEach(item => item.toggleDone())
       }
     }
   }))
   .views(self => ({
     itemsLeft() {
-      return self.items.filter( item => !item.done ).length;
+      return self.items.filter(item => !item.done).length;
     },
     getFilteredItems(filter = 'ALL') {
       const states = {
         ALL: self.items,
-        ACTIVE: self.items.filter( item => !item.done),
-        COMPLETED: self.items.filter( item => item.done)
+        ACTIVE: self.items.filter(item => !item.done),
+        COMPLETED: self.items.filter(item => item.done)
       }
 
       return states[filter];
+    }
+  }));
+
+export const Filter = types
+  .model({
+    state: types.enumeration('filter', ['ALL', 'ACTIVE', 'COMPLETED'])
+  })
+  .actions(self => ({
+    changeState(newState) {
+      self.state = newState;
     }
   }));

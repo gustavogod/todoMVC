@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite';
-import { useState } from 'react';
 import { Button, Card, Radio, Typography } from 'antd';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
@@ -7,12 +6,10 @@ import Item from './Item';
 
 const { Text } = Typography;
 
-const ItemsList = ({ toDoList }) => {
-  const [filter, setFilter] = useState('ALL');
+const ItemsList = ({ toDoList, filter }) => {
 
   function handleRadioGroupChange(e) {
-    const filter = e.target.value;
-    setFilter(filter);
+    filter.changeState(e.target.value);
   }
 
   const itemsLeft = toDoList.items.filter(item => !item.done);
@@ -31,14 +28,14 @@ const ItemsList = ({ toDoList }) => {
           key="filters"
           size="small"
           buttonStyle="solid"
-          defaultValue="ALL"
+          value={filter.state}
           onChange={handleRadioGroupChange}
         >
           <Radio.Button value="ALL">All</Radio.Button>
           <Radio.Button value="ACTIVE">Active</Radio.Button>
           <Radio.Button value="COMPLETED">Completed</Radio.Button>
         </Radio.Group>,
-        ((hasCompleted && filter !== 'ACTIVE') ?
+        ((hasCompleted && filter.state !== 'ACTIVE') ?
           <Button key="clearComplete" size='small' onClick={e => { toDoList.removeDoneItems() }}>
             Clear completed
           </Button>
@@ -70,13 +67,13 @@ const ItemsList = ({ toDoList }) => {
                   }}
                   >
                     {
-                      !toDoList.getFilteredItems(filter).length
+                      !toDoList.getFilteredItems(filter.state).length
                       ?
                       <Text type="secondary" style={{padding: '10px'}}>
-                        No {filter === 'ACTIVE' ? 'active' : 'completed'} tasks to show
+                        No {filter.state === 'ACTIVE' ? 'active' : 'completed'} tasks to show
                       </Text>
                       :
-                      toDoList.getFilteredItems(filter).map((item, index) =>
+                      toDoList.getFilteredItems(filter.state).map((item, index) =>
                       <Item key={item.key} item={item} index={index} />
                       )
                     }
