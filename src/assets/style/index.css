@@ -37,6 +37,18 @@ body {
   background-color: #F0F2F5;
 }
 
+/* style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}} */
+.ant-card-bordered .ant-col {
+  display: flex;
+  align-items: center;
+}
+
+.ant-typography-edit-content {
+  left: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
 .ant-layout-footer {
   padding: 24px 50px;
   background-color: #F0F2F5;
