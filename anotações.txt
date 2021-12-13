@@ -1,9 +1,0 @@
-Componente de texto editável
-https://ant.design/components/typography/
-
-Componente checkbox
-https://ant.design/components/checkbox/
-
-Card onde tem q ficar a lista de tarefas
-https://ant.design/components/card/
-
