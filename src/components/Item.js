@@ -16,7 +16,7 @@ const Item = ({ item, index }) => {
   } else {
     textAttrs = {
       editable: {
-        onChange: item.changeValue //já recebe function(string) por padrão
+        onChange: item.changeValue, //já recebe function(string) por padrão
       }
     }
   }
@@ -36,14 +36,19 @@ const Item = ({ item, index }) => {
                 style={{
                   padding: '8px',
                   transition: 'background-color 0.2s ease',
-                  backgroundColor: dnd.isDragging ? 'lightgreen' : 'inherit'
+                  backgroundColor: dnd.isDragging ? 'lightgreen' : 'inherit',
+                  flexWrap: 'nowrap'
                 }}
               >
                 <Col>
                   <Checkbox checked={item.done} onChange={e => { item.toggleDone() }} />
                 </Col>
                 <Col flex='auto'>
-                  <Text {...textAttrs}>{item.value}</Text>
+                    <Text
+                      {...textAttrs}
+                    >
+                      {item.value}
+                    </Text>
                 </Col>
                 <Col>
                   <Tooltip

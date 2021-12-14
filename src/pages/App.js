@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { observer } from 'mobx-react';
 
 import logo from '../assets/images/logo.png';
@@ -23,7 +24,7 @@ const App = ({ toDoList, filter }) => {
   
         <Content>
           <Row justify="center" style={{rowGap: '0px'}}>
-            <Col span={12}>
+            <Col lg={12} sm={20} xs={22}>
               <InputForm toDoList={toDoList} filter={filter} />
               {
                 toDoList.items.length > 0
